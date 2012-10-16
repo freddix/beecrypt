@@ -1,3 +1,5 @@
+%bcond_with	benchmark
+
 Summary:	The BeeCrypt Cryptography Library
 Name:		beecrypt
 Version:	4.2.1
@@ -50,6 +52,10 @@ The BeeCrypt Cryptography Library - development files.
 	--without-java		\
 	--without-python
 %{__make}
+
+%if %{with benchmark}
+%{__make} bench
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
