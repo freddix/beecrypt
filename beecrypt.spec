@@ -1,9 +1,7 @@
-%bcond_with	benchmark
-
-Summary:	The BeeCrypt Cryptography Library
+Summary:	Cryptography Library
 Name:		beecrypt
 Version:	4.2.1
-Release:	4
+Release:	5
 Epoch:		2
 License:	LGPL
 Group:		Libraries
@@ -14,10 +12,6 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%ifarch %{ix86}
-%define		specflags	-mmmx -msse -msse2
-%endif
 
 %description
 BeeCrypt is an open source cryptography library that contains highly
@@ -53,18 +47,11 @@ The BeeCrypt Cryptography Library - development files.
 	--without-python
 %{__make}
 
-%if %{with benchmark}
-%{__make} bench
-%endif
-
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/%{_lib}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-rm -f $RPM_BUILD_ROOT%{py_sitedir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
