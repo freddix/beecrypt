@@ -1,7 +1,8 @@
+# based on PLD Linux spec git://git.pld-linux.org/packages/beecrypt.git
 Summary:	Cryptography Library
 Name:		beecrypt
 Version:	4.2.1
-Release:	5
+Release:	6
 Epoch:		2
 License:	LGPL
 Group:		Libraries
